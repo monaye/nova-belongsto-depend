@@ -16,9 +16,9 @@ class FieldServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Nova::serving(function (ServingNova $event) {
-            Nova::script('nova-belongsto-depend', __DIR__ . '/../dist/js/field.js');
-        });
+        // Nova::serving(function (ServingNova $event) {
+        //     Nova::script('nova-belongsto-depend', __DIR__ . '/../dist/js/field.js');
+        // });
 
         $this->app->booted(function () {
             $this->routes();
@@ -47,7 +47,7 @@ class FieldServiceProvider extends ServiceProvider
         }
 
         Route::middleware(['nova'])
-                ->prefix('nova-vendor/nova-belongsto-depend')
-                ->group(__DIR__ . '/../routes/api.php');
+            ->prefix('nova-vendor/nova-belongsto-depend')
+            ->group(__DIR__ . '/../routes/api.php');
     }
 }
